@@ -1,0 +1,66 @@
+html,
+body,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: darkcyan;
+}
+
+.banner {
+  margin: auto;
+  text-align: center;
+  > * {
+    padding: 15px;
+    margin: 0;
+  }
+  > img {
+    width: 200px;
+  }
+  > p {
+    border-top: 1px solid orange;
+    background-color: lightyellow;
+    color: darkgreen;
+    > span {
+      font-weight: bold;
+    }
+  }
+}
+
+.content {
+  width: 650px;
+  margin: 50px auto 15px;
+  > h1 {
+    text-align: center;
+  }
+  > img {
+    filter: drop-shadow(3px 3px 3px grey);
+    border-radius: 15px;
+  }
+  > p:has(span) {
+    color: gray;
+    text-align: center;
+  }
+  > div {
+    margin: 30px 0 50px;
+    border-left: 1px solid orange;
+    padding-left: 15px;
+    > p {
+      margin: 0;
+      color: orange;
+    }
+  }
+  > h2 {
+    padding: 15px 0;
+    margin: 0 0 30px;
+    border-bottom: 1px solid darkcyan;
+  }
+  > ul {
+    margin: 10px 0;
+    > li {
+      padding-bottom: 10px;
+    }
+  }
+}
