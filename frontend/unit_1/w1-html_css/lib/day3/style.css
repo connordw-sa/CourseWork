@@ -1,0 +1,99 @@
+html {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: White;
+  background-color: #1f2937;
+}
+
+body {
+  margin: auto;
+  width: 65%;
+  color: white;
+  background-color: #eaeded;
+}
+
+.banner {
+  background-color: #222f3e;
+
+  text-align: left;
+  & img {
+    width: 150px;
+    padding: 5px 0 5px 25px;
+  }
+  > nav {
+    background-color: #354758;
+    padding: 5px 0 5px 25px;
+    > span {
+      padding-right: 15px;
+    }
+  }
+}
+
+.content div {
+  margin: 25px;
+  & a {
+    color: darkcyan;
+    padding-left: 10px;
+  }
+}
+
+.content_orange p {
+  background-color: orange;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.content_guides {
+  background-image: url(./day3bg-image.png);
+  background-size: 95% 75%;
+  padding: 30px;
+}
+
+.content_gift,
+.content_game,
+.content_cheer {
+  color: black;
+  > img {
+    width: 100%;
+  }
+  > p {
+    margin: 0;
+  }
+}
+
+.content_gift {
+  background-color: white;
+  > p {
+    text-align: left;
+    padding: 10px 0 0 10px;
+  }
+  > div {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    margin: 0px;
+    > img {
+      height: 350px;
+      width: 270px;
+      border-radius: 15px;
+      object-fit: cover;
+      filter: drop-shadow(3px 3px 3px grey);
+    }
+  }
+}
+
+.footer {
+  background-color: #222f3e;
+  > p {
+    background-color: #354758;
+    padding: 10px;
+    > a {
+      color: white;
+    }
+  }
+  > img {
+    width: 200px;
+    padding: 30px;
+  }
+}
