@@ -1,0 +1,46 @@
+html {
+  background-color: black;
+}
+
+body * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  border-radius: 30px;
+  margin: auto;
+  position: relative;
+  padding: 10px;
+}
+
+* {
+  transition-duration: 0.5s;
+}
+
+.box {
+  background-image: url(./kitten.jpg);
+  width: 500px;
+  height: 600px;
+  & p {
+    background-color: red;
+    width: 50px;
+  }
+  > p {
+    bottom: 10%;
+    left: 40%;
+  }
+  > div {
+    top: 100%;
+    > p {
+      display: inline-block;
+    }
+  }
+}
+
+.box:hover {
+  > p {
+    bottom: -5%;
+  }
+  > div {
+    top: 80%;
+  }
+}
