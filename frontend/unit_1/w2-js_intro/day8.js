@@ -1,22 +1,41 @@
+import { printVariables, rng } from "./lib/CTools.js";
 /* EXERCISE 1
  Create a variable and assign to it an array containing the first 5 positive numbers.
 */
+
+const varArray = [1, 2, 3, 4, 5];
+const ex1 = varArray;
 
 /* EXERCISE 2
  Create a variable and assign to it an object containing your name, surname, email address and age.
 */
 
+const myDetails = {
+  name: "Connor",
+  surname: "W.",
+  email: "@gmail",
+  age: "27",
+};
+const ex2 = myDetails;
+
 /* EXERCISE 3
  Add to the previously created object a property with a boolean value to rappresent wheter you have or not a driving license.
 */
+
+const ex3 = (myDetails.hasDrivers = true);
 
 /* EXERCISE 4
  Remove from the previously created object the age property.
 */
 
+const ex4 = delete myDetails.age;
+
 /* EXERCISE 5
  Create a second object with another name, surname, email address and verify that this object has a different email address than the previous one.
 */
+
+const secondObj = { ...myDetails, email: "@yahoo" };
+const ex5 = myDetails.email == secondObj.email;
 
 /* EXERCISE 6
  You are working on an e-commerce website. In the variable totalShoppingCart
@@ -26,19 +45,44 @@
  Write an algorithm that calculates the total cost to charge the user with.
 */
 
+let totalShoppingCart = rng(100);
+const ex6 = [
+  totalShoppingCart,
+  totalShoppingCart > 50 ? totalShoppingCart : totalShoppingCart + 10,
+];
+
 /* EXERCISE 7
  You are working on an e-commerce website. Today is Black Friday and everything has a 20% discount at the end of the purchase.
  Modify the previous answer inserting this information and, applying the same rules for the shipping cost, calculate the totalCost.
 */
+
+let priceToDiscount = ex6[1];
+const ex7 = [priceToDiscount, priceToDiscount * 0.8];
 
 /* EXERCISE 8
  Create a variable and assign to it an object representing a car, with properties like brand, model and licensePlate.
  Then clone it 5 times, and change the licensePlate for each cloned car without affecting the original one.
 */
 
+let carArr = [
+  {
+    brand: "cheap",
+    model: "bad",
+    licPlate: 1,
+  },
+];
+for (let i = 0; i < 5; i++) {
+  let cloneCar = { ...carArr[0], licPlate: [i + 2] };
+  carArr.push(cloneCar);
+}
+const ex8 = carArr;
+
 /* EXERCISE 9
  Create a variable called carsForRent and assign to it an array containing all the cars from the previous exercise.
 */
+
+let carsForRent = ex8;
+const ex9 = carsForRent;
 
 /* EXERCISE 10
  Remove the first and the last car from the carsForRent array.
@@ -97,3 +141,15 @@
  Replace all the strings contained in an array with their length.
  es.: ["strive", "is", "great"] => [6, 2, 5]
 */
+
+printVariables({
+  ex1,
+  ex2,
+  ex3,
+  ex4,
+  ex5,
+  ex6,
+  ex7,
+  ex8,
+  ex9,
+});
