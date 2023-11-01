@@ -19,21 +19,32 @@ EX6: Add a message board where the user can type a message in it (no real postin
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js"></script>
+
     <style>
       body {
         text-align: center;
+        height: 80vh;
         > * {
           margin: 50px auto;
+        }
+        & * {
+          padding: 5px;
         }
       }
       img {
         width: 200px;
       }
+      .aClass {
+        font-size: 2rem;
+        color: red;
+      }
+      .imgClass {
+        filter: opacity(0);
+      }
     </style>
   </head>
   <body>
-    <h1 onclick="changeHeader()">Smartphone Shop</h1>
+    <h1>Smartphone Shop</h1>
     <label>Type here: <input type="text" /></label>
 
     <table>
@@ -79,11 +90,11 @@ EX6: Add a message board where the user can type a message in it (no real postin
         <td>Description</td>
       </tr>
       <tr>
-        <td>Price: 50</td>
-        <td>Price: 40</td>
-        <td>Price: 30</td>
-        <td>Price: 20</td>
-        <td>Price: 10</td>
+        <td class="price">Price: 50</td>
+        <td class="price">Price: 40</td>
+        <td class="price">Price: 30</td>
+        <td class="price">Price: 20</td>
+        <td class="price">Price: 10</td>
       </tr>
       <tr>
         <td>
@@ -106,4 +117,5 @@ EX6: Add a message board where the user can type a message in it (no real postin
 
     <footer>123 Street, Cape Town, Smartphone Shop</footer>
   </body>
+  <script src="script.js"></script>
 </html>
