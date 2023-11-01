@@ -1,0 +1,109 @@
+<!-- You have been assigned to the creation of a Smartphone Shop Website. 
+    The homepage you’re about to write is just a showcase of the products of the shop with some extra information. -->
+<!-- Complete exercises from 1 to 6 with just plain HTML:
+
+EX1: Add an h1 tag with the name of your shop
+
+EX2: Add a TABLE with the top 5 products of your shop
+
+EX3: Insert for each product an image, a title, a description and a price
+
+EX4: Add links to existing Amazon products for each item in the table
+
+EX5: Add a footer with the address and the name of your shop
+
+EX6: Add a message board where the user can type a message in it (no real posting/saving features required!) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+      body {
+        text-align: center;
+        > * {
+          margin: 50px auto;
+        }
+      }
+      img {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 onclick="changeHeader()">Smartphone Shop</h1>
+    <label>Type here: <input type="text" /></label>
+
+    <table>
+      <tr>
+        <th>Prod 1</th>
+        <th>Prod 2</th>
+        <th>Prod 3</th>
+        <th>Prod 4</th>
+        <th>Prod 5</th>
+      </tr>
+      <tr>
+        <td>
+          <img
+            src="https://www.costco.co.uk/medias/sys_master/images/h37/hc3/119433914056734.jpg"
+          />
+        </td>
+        <td>
+          <img
+            src="https://www.costco.co.uk/medias/sys_master/images/h37/hc3/119433914056734.jpg"
+          />
+        </td>
+        <td>
+          <img
+            src="https://www.costco.co.uk/medias/sys_master/images/h37/hc3/119433914056734.jpg"
+          />
+        </td>
+        <td>
+          <img
+            src="https://www.costco.co.uk/medias/sys_master/images/h37/hc3/119433914056734.jpg"
+          />
+        </td>
+        <td>
+          <img
+            src="https://www.costco.co.uk/medias/sys_master/images/h37/hc3/119433914056734.jpg"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>Description</td>
+        <td>Description</td>
+        <td>Description</td>
+        <td>Description</td>
+      </tr>
+      <tr>
+        <td>Price: 50</td>
+        <td>Price: 40</td>
+        <td>Price: 30</td>
+        <td>Price: 20</td>
+        <td>Price: 10</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.amazon.com/">Link:</a>
+        </td>
+        <td>
+          <a href="https://www.amazon.com/">Link:</a>
+        </td>
+        <td>
+          <a href="https://www.amazon.com/">Link:</a>
+        </td>
+        <td>
+          <a href="https://www.amazon.com/">Link:</a>
+        </td>
+        <td>
+          <a href="https://www.amazon.com/">Link:</a>
+        </td>
+      </tr>
+    </table>
+
+    <footer>123 Street, Cape Town, Smartphone Shop</footer>
+  </body>
+</html>
