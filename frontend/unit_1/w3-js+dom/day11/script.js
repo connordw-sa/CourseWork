@@ -1,6 +1,4 @@
-function rcg() {
-  return "#" + (((1 << 24) * Math.random()) | 0).toString(16);
-}
+import { rcg } from "../lib.js";
 
 // EX7: Write a function to change the h1 text to something else
 
