@@ -40,14 +40,16 @@
           id="input-field"
           placeholder="input field for the exercise"
         />
+        <h3>Change subtitle color</h3>
+        <input type="color" class="color-field" />
       </div>
     </div>
 
     <div>
       <p>And this text is just for the exercise too!</p>
       <h2 style="color: red">
-        Save this page on your computer and open it with VSCode to get
-        thequestions!
+        Save this page on your computer and open it with VSCode to get the
+        questions!
       </h2>
     </div>
     <script type="module">
@@ -151,23 +153,29 @@
            Change the footer text with something else when the user clicks on it.
           */
 
-      // const changeFooterText = function () {
-      //   let initialText = document.querySelector("div:last-of-type > h2");
-      //   initialText.addEventListener("click", function () {
-      //     this.innerText =
-      //       this.innerText == initialText.innerText
-      //         ? "Click to change back"
-      //         : initialText.innerText;
-      //   });
-      // };
+      const changeFooterText = function () {
+        let initialText =
+          "Save this page on your computer and open it with VSCode to get the questions!";
+        let textToChange = document.querySelector("div:last-of-type > h2");
+        textToChange.addEventListener("click", function () {
+          this.innerText =
+            this.innerText == initialText
+              ? "Click to change back"
+              : initialText;
+        });
+      };
 
-      // changeFooterText();
+      changeFooterText();
 
       /* EXERCISE 11
            Attach an event listener to the input field in the page that changes the text of the page's subtitle
           */
-
+      let subtitle = document.querySelector("h2");
       const inputField = document.getElementById("input-field");
+      inputField.addEventListener("input", function () {
+        subtitle.innerText = this.value;
+      });
+
       // ...
 
       /* EXERCISE 12
@@ -175,7 +183,7 @@
           */
 
       window.onload = function () {
-        // ...
+        alert("Welcome");
       };
 
       /* EXERCISE 13
@@ -185,6 +193,11 @@
       /* ### EXTRA ###  EXERCISE 14
            Create an input of type "color" and use it to change the color of the subtitle
           */
+
+      const colorField = document.getElementsByClassName("color-field")[0];
+      colorField.addEventListener("input", function () {
+        subtitle.style.color = this.value;
+      });
     </script>
   </body>
 </html>
