@@ -100,9 +100,9 @@
           */
 
       const addToTheSecond = function (content) {
-        document
-          .getElementById("secondList")
-          .appendChild(document.createElement("li")).innerText = content;
+        let secondList = document.getElementById("secondList");
+        secondList.appendChild(document.createElement("li")).innerText =
+          content;
       };
       addToTheSecond("4th");
 
@@ -111,10 +111,8 @@
           */
 
       const addParagraph = function (content) {
-        document
-          .querySelector("div p")
-          .parentElement.appendChild(document.createElement("p")).innerText =
-          content;
+        let parentDiv = document.querySelector("div p").parentElement;
+        parentDiv.appendChild(document.createElement("p")).innerText = content;
       };
       addParagraph("blah 2");
 
