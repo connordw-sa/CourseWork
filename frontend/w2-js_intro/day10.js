@@ -1,4 +1,4 @@
-import { printVariables, rng } from "./lib/CTools.js";
+import { printVariables, rng } from "../lib/CTools.js";
 import moviesArray from "./lib/movies.json" assert { type: "json" };
 /* EXERCISE A
 Create a variable called test and assign a string value to it.

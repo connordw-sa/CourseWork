@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- EXERCISE 1:
+    Specify the title, the charset (UTF-8) and the viewport of the page.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* EXERCISE 2:  
+       Create a CSS class for the task list with a different background color
+       Create a CSS class for the task list item with a border, a bold text and a bigger font size
+       Style every button of the page to be bigger
+    */
+      #myTaskList {
+        background-color: lightblue;
+        > li {
+          border: 1px solid orange;
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+      }
+
+      & input[type="button"] {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to your personal Task List!</h1>
+    <br />
+
+    <span
+      >You can add any task you like by writing it in the specified field and
+      then press "Add new task"</span
+    ><br /><br />
+
+    <input type="text" id="newTask" />
+    <input type="button" value="Add new Task" onclick="addNewTask()" />
+
+    <!-- EXERCISE 3
+        Create a button "Remove Last Task" to trigger the function "removeLast"
+        -->
+    <input type="button" value="Remove Last Task" onclick="removeLastTask()" />
+
+    <!-- EXERCISE 4
+        Create a button "Remove First Task" to trigger the function "removeFirst"
+        -->
+    <input
+      type="button"
+      value="Remove First Task"
+      onclick="removeFirstTask()"
+    />
+    <input
+      type="button"
+      value="Console log tasks"
+      onclick="getTasksAsArray()"
+    />
+
+    <ul id="myTaskList"></ul>
+
+    <hr />
+
+    <input type="color" placeholder="Color" id="colorPicker" />
+    <input type="button" value="Change task background" />
+
+    <hr />
+
+    <input type="button" value="Sort" onclick="bubbleSort()" />
+
+    <script>
+      /* EXERCISE 5:
+              Add a new task to the list.
+          */
+      let taskList = document.getElementById("myTaskList");
+
+      function addNewTask() {
+        let taskContent = document.getElementById("newTask").value;
+        if (taskContent.length > 0) {
+          taskList.appendChild(document.createElement("li")).innerText =
+            taskContent;
+        }
+      }
+      addNewTask();
+
+      /* EXERCISE 6:
+              Create a function "removeLast" which removes the last item from the task list
+          */
+
+      function removeLastTask() {
+        if (taskList.childElementCount > 0) {
+          taskList.lastElementChild.remove();
+        }
+      }
+      removeLastTask();
+
+      /* EXERCISE 7:
+              Create a function "removeFirst" which removes the first item from the task list
+          */
+
+      function removeFirstTask() {
+        if (taskList.childElementCount > 0) {
+          taskList.firstElementChild.remove();
+        }
+      }
+
+      /* EXERCISE 8:
+             Create a function "getTasksAsArray" which returns, and prints to the console an array containing the tasks as strings
+          */
+
+      function getTasksAsArray() {
+        let taskLists = [];
+        for (let task of taskList.children) {
+          taskLists.push(task.innerText);
+        }
+        return console.log(taskLists);
+      }
+
+      getTasksAsArray();
+
+      /* EXERCISE 9:
+             Create a function "changeTaskBackgroundColor" and attach it to the "Change task background" button via JavaScript (not via html attribute)
+             Take the color from the color picker ad apply it as background to every list item
+    */
+
+      /* ### EXTRA ### */
+
+      /* EXERCISE 10:
+              Attach an eventListener to each new task you create. When the task receives the click it should be removed (only the clicked task should disappear)
+    */
+
+      /* EXERCISE 11:
+             Create a function "bubbleSort()" which sorts the task list alphabetically using the bubble sort algorithm
+    */
+    </script>
+  </body>
+</html>

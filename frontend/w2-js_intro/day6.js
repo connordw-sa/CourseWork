@@ -1,4 +1,4 @@
-import { printVariables } from "./lib/CTools.js";
+import { printVariables } from "../lib/CTools.js";
 // Homework:
 // a variable for your name, last name, middle name
 // a variable that will sum the first two variables into your full name

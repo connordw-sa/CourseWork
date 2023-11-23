@@ -1,4 +1,4 @@
-import { printVariables, rng } from "./lib/CTools.js";
+import { printVariables, rng } from "../lib/CTools.js";
 let randInt1 = rng(9);
 let randInt2 = rng(15);
 let randInt3 = rng(20);

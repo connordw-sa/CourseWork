@@ -1,4 +1,4 @@
-import { printVariables, rng } from "./lib/CTools.js";
+import { printVariables, rng } from "../lib/CTools.js";
 /* EXERCISE 1
  Create a variable and assign to it an array containing the first 5 positive numbers.
 */
