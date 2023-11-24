@@ -74,13 +74,20 @@
       /* EXERCISE 5:
               Add a new task to the list.
           */
+      /* EXERCISE 10:
+              Attach an eventListener to each new task you create. When the task receives the click it should be removed (only the clicked task should disappear)
+    */
       let taskList = document.getElementById("myTaskList");
 
       function addNewTask() {
         let taskContent = document.getElementById("newTask").value;
         if (taskContent.length > 0) {
-          taskList.appendChild(document.createElement("li")).innerText =
-            taskContent;
+          let task = document.createElement("li");
+          task.innerText = taskContent;
+          taskList.appendChild(task);
+          task.addEventListener("click", function () {
+            task.remove();
+          });
         }
       }
       addNewTask();
@@ -115,7 +122,8 @@
         for (let task of taskList.children) {
           taskLists.push(task.innerText);
         }
-        return console.log(taskLists);
+        console.log(taskLists);
+        return taskLists;
       }
 
       getTasksAsArray();
@@ -125,18 +133,39 @@
              Take the color from the color picker ad apply it as background to every list item
     */
       function changeTaskBackgroundColor() {
-        let colorPicker = document.getElementById("colorPicker");
-        colorPicker.addEventListener;
+        let button = document.querySelector(
+          'input[type="button"][value="Change task background"]'
+        );
+        button.addEventListener("click", function () {
+          let colorPicker = document.getElementById("colorPicker");
+          for (let task of taskList.children) {
+            task.style.backgroundColor = colorPicker.value;
+          }
+        });
       }
-      /* ### EXTRA ### */
 
-      /* EXERCISE 10:
-              Attach an eventListener to each new task you create. When the task receives the click it should be removed (only the clicked task should disappear)
-    */
+      changeTaskBackgroundColor();
+      /* ### EXTRA ### */
 
       /* EXERCISE 11:
              Create a function "bubbleSort()" which sorts the task list alphabetically using the bubble sort algorithm
     */
+
+      function bubbleSort() {
+        let arr = getTasksAsArray();
+        arr.sort((a, b) =>
+          a.localeCompare(b, undefined, { sensitivity: "base" })
+        );
+        taskList.innerHTML = "";
+        for (let el of arr) {
+          let child = document.createElement("li");
+          child.innerText = el;
+          taskList.appendChild(child);
+          child.addEventListener("click", function () {
+            child.remove();
+          });
+        }
+      }
     </script>
   </body>
 </html>
