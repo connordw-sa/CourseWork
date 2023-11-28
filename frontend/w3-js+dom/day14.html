@@ -39,7 +39,7 @@
     //     <!-- BINGO CHALLENGE!
     // Create programmatically (using JS) a bingo board with 76 cells, numbered from 1 to 76.
     function generateBoard(parent) {
-      for (let i = 0; i < 76; i++) {
+      for (let i = 1; i < 77; i++) {
         let square = document.createElement("div");
         square.innerText = `${i}`;
         let board = document.getElementsByClassName(parent)[0];
@@ -47,17 +47,42 @@
       }
     }
     generateBoard("bingo-main");
+
     // Create a button to randomize a number from 1 to 76.
     // – Make sure to always select a new number (eg. avoid getting the number 10 multiple times).
+
     function generateNum() {
       let button = document.getElementsByTagName("input")[0];
       let numArr = document.getElementsByClassName("numbers")[0];
+      let nums = [];
+      let allNumbersUsed = false;
+
       button.addEventListener("click", function () {
-        let newNum = rng(76);
-        numArr.innerText = newNum;
+        let newNum;
+
+        if (allNumbersUsed) {
+          // If all numbers are used, reset the nums array
+          nums = [];
+          allNumbersUsed = false;
+        }
+
+        // Keep generating a new number until it's not in the nums array
+        do {
+          newNum = rng(76);
+        } while (nums.includes(newNum));
+
+        nums.push(newNum);
+        numArr.innerText = nums.join(" ");
+
+        // Check if all numbers from 1 to 76 have been used
+        if (nums.length === 76) {
+          allNumbersUsed = true;
+        }
       });
     }
+
     generateNum();
+
     // The cell with same number should be highlighted in some way on the bingo board.
 
     // EXTRA:
