@@ -9,16 +9,17 @@
         text-align: center;
       }
 
-      .bingo-main {
+      .bingo-main,
+      .player-board {
         margin: auto;
         display: flex;
         flex-wrap: wrap;
         width: 500px;
         text-overflow: clip;
-        > div {
-          padding: 5px;
-          border: 1px solid black;
-        }
+      }
+      .square {
+        padding: 5px;
+        border: 1px solid black;
       }
     </style>
   </head>
@@ -43,6 +44,7 @@
       for (let i = 1; i < value; i++) {
         let square = document.createElement("div");
         square.innerText = `${i}`;
+        square.classList.add("square");
         let board = document.getElementsByClassName(parent)[0];
         board.appendChild(square);
       }
@@ -52,6 +54,7 @@
     // Create a button to randomize a number from 1 to 76.
     // – Make sure to always select a new number (eg. avoid getting the number 10 multiple times).
     let numArr = [];
+    numArr.join(" ");
 
     function generateNum() {
       let numDiv = document.getElementsByClassName("numbers")[0];
@@ -66,7 +69,7 @@
 
         numArr.push(newNum);
         console.log(numArr, newNum);
-        numDiv.innerText = numArr.join(" ");
+        numDiv.innerText = numArr;
 
         if (numArr.length === 76) {
           button.disabled = true;
@@ -91,7 +94,7 @@
         document.getElementsByTagName("input")[1].value,
         10
       );
-      for (let i = 1; i < numOfBoards; i++) {
+      for (let i = 0; i < numOfBoards; i++) {
         generateBoard("player-board", 25);
       }
     }
