@@ -9,7 +9,7 @@
         text-align: center;
       }
 
-      .bingo-main,
+      .main-board,
       .player-board {
         margin: auto;
         display: flex;
@@ -28,7 +28,7 @@
     <input type="button" value="Generate Number" />
     <div class="numbers"></div>
     <h1>Main Board</h1>
-    <div class="bingo-main"></div>
+    <div class="main-board"></div>
     <h2>Player Boards</h2>
     <input type="number" />
     <input type="button" value="Generate User Boards" />
@@ -45,62 +45,22 @@
         let square = document.createElement("div");
         square.innerText = `${i}`;
         square.classList.add("square");
-        let board = document.getElementsByClassName(parent)[0];
+        let board = document.createElement("div");
         board.appendChild(square);
+        let parentDiv = document.getElementsByClassName(parent)[0];
+        parentDiv.appendChild(board);
       }
     }
-    generateBoard("bingo-main", 77);
+    generateBoard("main-board", 77);
 
     // Create a button to randomize a number from 1 to 76.
     // – Make sure to always select a new number (eg. avoid getting the number 10 multiple times).
-    let numArr = [];
-    numArr.join(" ");
-
-    function generateNum() {
-      let numDiv = document.getElementsByClassName("numbers")[0];
-      let button = document.getElementsByTagName("input")[0];
-
-      button.addEventListener("click", function () {
-        let newNum;
-
-        do {
-          newNum = rng(76);
-        } while (numArr.includes(newNum));
-
-        numArr.push(newNum);
-        console.log(numArr, newNum);
-        numDiv.innerText = numArr;
-
-        if (numArr.length === 76) {
-          button.disabled = true;
-        }
-      });
-    }
-
-    generateNum();
 
     // The cell with same number should be highlighted in some way on the bingo board.
 
     // EXTRA:
 
     // – Create a user board with 24 randomized numbers that highlights as the main board does.
-    let numOfBoards = parseInt(
-      document.getElementsByTagName("input")[1].value,
-      10
-    );
-
-    function generateUserBoards() {
-      let numOfBoards = parseInt(
-        document.getElementsByTagName("input")[1].value,
-        10
-      );
-      for (let i = 0; i < numOfBoards; i++) {
-        generateBoard("player-board", 25);
-      }
-    }
-
-    let button = document.getElementsByTagName("input")[2];
-    button.addEventListener("click", generateUserBoards);
 
     // – Let the user choose how many user boards he’s willing to play with and generate them before starting to play.
 
