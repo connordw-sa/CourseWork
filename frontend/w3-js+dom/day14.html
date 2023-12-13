@@ -9,8 +9,8 @@
         text-align: center;
       }
 
-      .main-board,
-      .player-board {
+      .player-board,
+      .bingo-board {
         margin: auto;
         display: flex;
         flex-wrap: wrap;
@@ -41,15 +41,17 @@
     //     <!-- BINGO CHALLENGE!
     // Create programmatically (using JS) a bingo board with 76 cells, numbered from 1 to 76.
     function generateBoard(parent, value) {
+      let container = document.createElement("div");
+      container.classList.add("bingo-board");
       for (let i = 1; i < value; i++) {
         let square = document.createElement("div");
         square.innerText = `${i}`;
         square.classList.add("square");
-        let board = document.createElement("div");
-        board.appendChild(square);
-        let parentDiv = document.getElementsByClassName(parent)[0];
-        parentDiv.appendChild(board);
+
+        container.appendChild(square);
       }
+      let parentDiv = document.getElementsByClassName(parent)[0];
+      parentDiv.appendChild(container);
     }
     generateBoard("main-board", 77);
 
