@@ -10,7 +10,7 @@
       }
 
       .player-board,
-      .bingo-board {
+      #bingo-board {
         margin: auto;
         display: flex;
         flex-wrap: wrap;
@@ -21,18 +21,21 @@
         padding: 5px;
         border: 1px solid black;
       }
+      .red {
+        background-color: red;
+      }
     </style>
   </head>
   <body>
     <h1>Bingo</h1>
-    <input type="button" value="Generate Number" />
-    <div class="numbers"></div>
+    <input type="button" value="Generate Number" id="numButton" />
+    <div id="numbers"></div>
     <h1>Main Board</h1>
-    <div class="main-board"></div>
+    <div id="main-board"></div>
     <h2>Player Boards</h2>
     <input type="number" />
     <input type="button" value="Generate User Boards" />
-    <div class="player-board"></div>
+    <div id="player-board"></div>
   </body>
 
   <script type="module">
@@ -42,23 +45,47 @@
     // Create programmatically (using JS) a bingo board with 76 cells, numbered from 1 to 76.
     function generateBoard(parent, value) {
       let container = document.createElement("div");
-      container.classList.add("bingo-board");
+      container.id = "bingo-board";
       for (let i = 1; i < value; i++) {
         let square = document.createElement("div");
         square.innerText = `${i}`;
         square.classList.add("square");
-
         container.appendChild(square);
       }
-      let parentDiv = document.getElementsByClassName(parent)[0];
+      let parentDiv = document.getElementById(parent);
       parentDiv.appendChild(container);
     }
     generateBoard("main-board", 77);
 
     // Create a button to randomize a number from 1 to 76.
     // – Make sure to always select a new number (eg. avoid getting the number 10 multiple times).
-
     // The cell with same number should be highlighted in some way on the bingo board.
+    function generateNumbers() {
+      let numbers = [];
+
+      let numButton = document.getElementById("numButton");
+      let mainBoardSquares = document.getElementsByClassName("square");
+      numButton.addEventListener("click", function () {
+        let newNum;
+        do {
+          newNum = rng(76);
+        } while (numbers.includes(newNum));
+        numbers.push(newNum);
+
+        if (numbers.length > 75) {
+          numButton.disabled = true;
+        }
+        document.getElementById("numbers").innerText = numbers;
+
+        for (let i = 0; i < mainBoardSquares.length; i++) {
+          let square = mainBoardSquares[i];
+          if (square.innerText === newNum.toString()) {
+            square.classList.add("red");
+          }
+        }
+      });
+    }
+    generateNumbers();
 
     // EXTRA:
 
