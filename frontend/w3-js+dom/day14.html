@@ -114,6 +114,7 @@
             square.classList.add("red");
           }
         }
+        winGame();
       });
     }
     generateNumbers();
@@ -137,5 +138,26 @@
         });
     }
     resetGame();
+
+    function winGame() {
+      let playerSquares = document.querySelectorAll(
+        "#player-board #bingo-board .square"
+      );
+      let allRed = true;
+
+      for (let i = 0; i < playerSquares.length; i++) {
+        let square = playerSquares[i];
+
+        if (!square.classList.contains("red")) {
+          allRed = false;
+          break;
+        }
+      }
+
+      if (allRed) {
+        alert("Bingo!");
+        resetGame();
+      }
+    }
   </script>
 </html>
