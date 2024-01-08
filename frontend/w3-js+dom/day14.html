@@ -63,10 +63,10 @@
     // – Create a user board with 24 randomized numbers that highlights as the main board does.
     // – Let the user choose how many user boards he’s willing to play with and generate them before starting to play.
 
-    function generateBoard(parent, value) {
+    function generateBoard(parent, value, start) {
       let container = document.createElement("div");
       container.id = "bingo-board";
-      for (let i = 1; i < value; i++) {
+      for (let i = start; i < value; i++) {
         let square = document.createElement("div");
         square.innerText = `${i}`;
         square.classList.add("square");
@@ -75,7 +75,7 @@
       let parentDiv = document.getElementById(parent);
       parentDiv.appendChild(container);
     }
-    generateBoard("main-board", 77);
+    generateBoard("main-board", 77, 25);
 
     let rngButton = document.getElementById("rngButton");
     let userBoardButton = document.getElementById("userBoardsButton");
@@ -86,7 +86,7 @@
         rngButton.disabled = false;
         userBoardButton.disabled = true;
         for (let i = 0; i < numOfBoards; i++) {
-          generateBoard("player-board", 25);
+          generateBoard("player-board", 25, 1);
         }
       }
     });
@@ -111,7 +111,7 @@
         for (let i = 0; i < squares.length; i++) {
           let square = squares[i];
           if (square.innerText === newNum.toString()) {
-            square.classList.add("red");
+            square.style.backgroundColor = "red";
           }
         }
         winGame();
